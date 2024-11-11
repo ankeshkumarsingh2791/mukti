@@ -5,6 +5,8 @@ import CardHome2 from './components/Cards/CardHome2'
 import Footer from './components/Home/Footer'
 import CardHome3 from './components/Cards/CardHome3'
 import TrendingCard from './components/Cards/TrendingCard'
+import Login from './components/Forms/Login'
+import Register from './components/Forms/Register'
 
 const Page = () => {
   return (
@@ -49,6 +51,11 @@ const Page = () => {
 
 
      </div>
+
+    <Login />
+
+    <Register />
+
     </div>
   )
 }
