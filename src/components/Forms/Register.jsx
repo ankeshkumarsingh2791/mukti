@@ -98,7 +98,7 @@ const Register = () => {
           width: 70,
         }}
       >
-        <Option value="86">+86</Option>
+        <Option value="91">+91</Option>
         <Option value="87">+87</Option>
       </Select>
     </Form.Item>
