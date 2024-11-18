@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import Search from '../ui/Search'
-import ProfileDropDown from '../ui/ProfileDropDown'
-import { Link } from 'react-router-dom'
-import SideNav from '../ui/SideNav'
+import ProfileDropDown from '../ui/ProfileDropDown';
+
 
 const DaNavBar = () => {
-   
+   const [open, setOpen] = useState(false);
   return (
     <div className='w-full bg-yellow-100 fixed z-50 '>
         <div className='w-full flex  justify-evenly items-center '>
@@ -21,10 +20,10 @@ const DaNavBar = () => {
                 </section>
                 
 
-                <section  className=' justify-center flex  items-center  ' >
+                <button  onClick={() =>setOpen(!open)} className=' justify-center flex  items-center  ' >
                 <ProfileDropDown />
                   
-                </section>
+                </button>
                 
             </div>
         </div>

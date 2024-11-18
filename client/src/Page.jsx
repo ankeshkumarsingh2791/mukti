@@ -2,11 +2,11 @@ import React from 'react'
 import NavBar from './components/Home/NavBar'
 import Crousel from './components/ui/Crousel'
 import CardHome2 from './components/Cards/CardHome2'
-import Footer from './components/Home/Footer'
+
 import CardHome3 from './components/Cards/CardHome3'
 import TrendingCard from './components/Cards/TrendingCard'
-import Login from './components/Forms/Login'
-import Register from './components/Forms/Register'
+
+
 
 const Page = () => {
   return (
@@ -20,7 +20,7 @@ const Page = () => {
       <CardHome2 heading0={"Transactions "} a1={"total"} a2={"543.56 crores"}  icon={<i className="ri-terminal-window-line text-6xl font-light"></i>}/>
 
      </div>
-     <Footer />
+     
      <section className='px-8 pb-10 font-medium text-xl '>
       <h3 className='text-6xl mb-4'>What's New ?</h3>
       <p>Citizen may explore the newly added services on Mukti </p>
@@ -52,10 +52,7 @@ const Page = () => {
 
      </div>
 
-    <Login />
-
-    <Register />
-
+   
     </div>
   )
 }
