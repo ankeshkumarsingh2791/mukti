@@ -7,7 +7,7 @@ const HomeLayput = () => {
   return (
     <div className='w-full '>
         <NavBar />
-        <div>
+        <div className='w-full mt-10'>
             <Outlet />
         </div>
         <Footer />

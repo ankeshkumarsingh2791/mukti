@@ -2,6 +2,7 @@ import { useState } from "react";
 
 // import { a } from "react-router-dom";
 import NavbarMobile from "./NavbarMobile";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [isHamburger, setIsHamburger] = useState(false);
@@ -24,36 +25,36 @@ const NavBar = () => {
             )}
           </button>
           <ul className="hidden sm:flex sm:gap-6 ">
-            <a
+            <Link
               to={"/"}
               className="font-medium  hover:font-semibold focus:font-semibold focus:underline"
             >
               Home
-            </a>
-            <a
+            </Link>
+            <Link
               to={"/about"}
               className="font-medium  hover:font-semibold focus:font-semibold focus:underline"
             >
               About
-            </a>
-            <a
+            </Link>
+            <Link
               to={"/add-service"}
               className="font-medium  hover:font-semibold focus:font-semibold focus:underline"
             >
               Add Services
-            </a>
-            <a
+            </Link>
+            <Link
               to={"/signup"}
               className="font-medium  hover:font-semibold focus:font-semibold focus:underline"
             >
               Sign up
-            </a>
-            <a
+            </Link>
+            <Link
               to={"/login"}
               className="font-medium  hover:font-semibold focus:font-semibold focus:underline"
             >
               Login
-            </a>
+            </Link>
           </ul>
         </section>
 

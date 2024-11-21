@@ -21,6 +21,7 @@ import {
   Select,
 } from 'antd';
 import Crousel from '../ui/Crousel';
+import { Link } from 'react-router-dom';
 const { Option } = Select;
 const residences = [
   {
@@ -128,10 +129,11 @@ const Register = () => {
     value: website,
   }));
   return (
-    <div className='flex  justify-center items-center w-full'>
-        <div className='w-1/2 '>
+    <div className='flex  justify-center items-center w-full bg-yellow-200 h-screen'>
+        <div className='w-1/2 flex  flex-col  items-center    '>
 
     <Form
+    className='bg-white py-8 px-10 flex flex-col rounded-xl shadow-2xl  justify-center  '
       {...formItemLayout}
       form={form}
       name="register"
@@ -145,7 +147,7 @@ const Register = () => {
       }}
       scrollToFirstError
     >
-     <div className=''>
+  
 
       <Form.Item
     
@@ -165,7 +167,7 @@ const Register = () => {
       >
         <Input placeholder='Enter Your Full Name' className='' />
       </Form.Item>
-     </div>
+   
       <Form.Item
         name="email"
         label="E-mail"
@@ -241,15 +243,19 @@ const Register = () => {
         </Checkbox>
       </Form.Item>
       <Form.Item {...tailFormItemLayout}>
-        <Button type="primary" htmlType="submit">
-          Register
+        <Button className='w-full' type="primary" htmlType="submit">
+          Register / Sign-up
+        </Button>
+        <h3 className='text-center text-xl font-medium py-1'>Or</h3>
+        <Button  className='w-full ' type="primary" htmlType="submit">
+        <Link to={'/login'}>Login</Link>
         </Button>
       </Form.Item>
     </Form>
         </div>
-        <div className='w-1/2 mx-10 bg-white py-10 rounded-md '>
+        <div className='w-1/2 mx-10 py-1 rounded-md '>
         <Carousel autoplay>
-    <div>
+    <div className=' '>
       <img style={contentStyle} src='Login.svg'/>
     </div>
     <div>
