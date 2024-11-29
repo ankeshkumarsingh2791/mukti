@@ -1,5 +1,6 @@
 {
   "name": "mukti",
+  "proxy":"http:/localhost:8080",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -14,6 +15,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@reduxjs/toolkit": "^2.3.0",
     "antd": "^5.21.6",
+    "axios": "^1.7.8",
     "class-variance-authority": "^0.7.0",
     "clouddinary-file-upload": "^1.0.1",
     "clsx": "^2.1.1",
