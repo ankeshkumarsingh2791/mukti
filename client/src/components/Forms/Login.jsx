@@ -1,11 +1,26 @@
 import React from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input, Flex } from 'antd';
-import { Link } from 'react-router-dom';
+import { Button, Checkbox, Form, Input, Flex, message } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
-  const onFinish = (values) => {
+  const navigate = useNavigate
+  const onFinish = async (values) => {
     console.log('Received values of form: ', values);
+    try {
+      const res = await axios.post("/api/v1/user/login", values)
+      if(res.data.success){
+        localStorage.setItem("token", res.data.token)
+        message.success("Login successful")
+        navigate('/')
+      }else{
+        message.error(res.data.message)
+      }
+    } catch (error) {
+      message.error("Wrong credentials ")
+    }
+
   };
   return (
     <div className='w-full h-screen flex   bg-yellow-200'>

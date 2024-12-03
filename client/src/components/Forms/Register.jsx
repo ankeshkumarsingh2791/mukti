@@ -11,17 +11,15 @@ import {
   AutoComplete,
   Button,
   Carousel,
-  Cascader,
-  Checkbox,
-  Col,
   Form,
   Input,
   InputNumber,
-  Row,
+  message,
   Select,
 } from 'antd';
 import Crousel from '../ui/Crousel';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 const { Option } = Select;
 const residences = [
   {
@@ -88,9 +86,23 @@ const tailFormItemLayout = {
   },
 };
 const Register = () => {
+
+  const navigate = useNavigate()
   const [form] = Form.useForm();
-  const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+  const onFinishHandler = async (values) => {
+    try {
+      console.log("Sending request to:", "http://localhost:5173/api/v1/user/register");
+      const res = await axios.post("/api/v1/user/register", values);
+      if(res.data.success){
+        message.success('Register Successful');
+        navigate('/login')
+      } else{
+        message.error(res.data.message)
+      }
+    } catch (error) {
+      console.log(error)
+      message.error("Something went wrong")
+    }
   };
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
@@ -137,7 +149,7 @@ const Register = () => {
       {...formItemLayout}
       form={form}
       name="register"
-      onFinish={onFinish}
+      onFinish={onFinishHandler}
       initialValues={{
         residence: ['zhejiang', 'hangzhou', 'xihu'],
         prefix: '86',
@@ -150,7 +162,7 @@ const Register = () => {
   
 
       <Form.Item
-    
+       id='name'
         name="name"
         label="Full-Name"
         
@@ -165,10 +177,11 @@ const Register = () => {
           },
         ]}
       >
-        <Input placeholder='Enter Your Full Name' className='' />
+        <Input values='name' placeholder='Enter Your Full Name' className='' />
       </Form.Item>
    
       <Form.Item
+        id='email'
         name="email"
         label="E-mail"
         rules={[
@@ -186,6 +199,7 @@ const Register = () => {
       </Form.Item>
      
       <Form.Item
+      id='password'
         name="password"
         label="Password"
         rules={[
@@ -199,7 +213,7 @@ const Register = () => {
         <Input.Password />
       </Form.Item>
     
-      <Form.Item
+      {/* <Form.Item
         name="phone"
         label="Phone Number"
         rules={[
@@ -215,19 +229,9 @@ const Register = () => {
             width: '100%',
           }}
         />
-      </Form.Item>
+      </Form.Item> */}
 
-     
-
-     
-
-      
-
-     
-
-     
-
-      <Form.Item
+      {/* <Form.Item
         name="agreement"
         valuePropName="checked"
         rules={[
@@ -241,7 +245,7 @@ const Register = () => {
         <Checkbox>
           I have read the <a href="">agreement</a>
         </Checkbox>
-      </Form.Item>
+      </Form.Item> */}
       <Form.Item {...tailFormItemLayout}>
         <Button className='w-full' type="primary" htmlType="submit">
           Register / Sign-up
