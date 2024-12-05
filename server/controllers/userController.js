@@ -48,4 +48,33 @@ const registerController = async (req,res) => {
     }
 }
 
-module.exports = {loginController, registerController};
+const AuthController = async(req,res) => {
+ try {
+     const user = req.findOne(_id=req.body.userId)
+     if(!user){
+        return res.status(200).send({
+            message:"User not found",
+            success: false
+        })
+     }
+     else {
+        res.status(200).send({
+            success:true,
+            data:{
+                name:user.name,
+                email:user.email,
+
+            },
+        })
+     }
+ } catch (error) {
+    console.log(error)
+    res.status(500).send({
+        message:'auth error',
+        success: false,
+        error
+    })
+ }
+}
+
+module.exports = {loginController, registerController, AuthController};
